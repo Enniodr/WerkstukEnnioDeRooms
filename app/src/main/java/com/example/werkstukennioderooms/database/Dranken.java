@@ -7,7 +7,10 @@ import androidx.room.PrimaryKey;
 public class Dranken {
     @PrimaryKey(autoGenerate = true)
     private int drank_id;
-    private int foto;
+    // BYTE
+    // https://stackoverflow.com/questions/46337519/how-insert-image-in-room-persistence-library
+    // Niet aangeraden om foto's op te slaan in Room database
+    private byte[] foto;
     private String drankNaam;
     private String beschrijving;
     private int alcoholpercentage;
@@ -20,11 +23,11 @@ public class Dranken {
         this.drank_id = drank_id;
     }
 
-    public int getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(int foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 

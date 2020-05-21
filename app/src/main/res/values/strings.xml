@@ -6,4 +6,8 @@
     <string name="Register">Registreer</string>
     <string name="email">email</string>
     <string name="nieuwsbrief_ontvangen">Nieuwsbrief ontvangen</string>
+    <string name="Info">Info</string>
+    <string name="Events">Dranken</string>
+    <string name="Dranken">Dranken</string>
+    <string name="Logout">Afmelden</string>
 </resources>
