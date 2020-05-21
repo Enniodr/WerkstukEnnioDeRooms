@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WerkstukEnnioDeRooms</string>
+    <string name="Name">Nom</string>
+    <string name="Password">Mot de passe</string>
+    <string name="Login">S\'identifier</string>
+    <string name="Register">S\'inscrire</string>
+    <string name="email">email</string>
+</resources>
