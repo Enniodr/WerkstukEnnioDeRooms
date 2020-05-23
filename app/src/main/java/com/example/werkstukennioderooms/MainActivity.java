@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.werkstukennioderooms.database.AppDatabase;
+import com.example.werkstukennioderooms.database.Dranken;
 import com.example.werkstukennioderooms.database.Leden;
 
 import java.util.List;
@@ -77,5 +78,36 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RegistreerActivity.class);
         startActivity(intent);
+    }
+
+
+
+
+    // Standaardgegevens inladen
+    private void standaardGegevensInDatabase(){
+        List<Leden> leden = ledenDB.ledenDao().getLeden();
+
+        if (leden.size() <= 0){
+            Leden lid = new Leden();
+            lid.setNaam("Admin");
+            lid.setEmail("Admin@admin.be");
+            lid.setPaswoord("admin");
+            ledenDB.ledenDao().insertLeden(lid);
+        }
+
+        List<Dranken> dranken = drankenDB.drankenDao().getDranken();
+
+        if (dranken.size() <= 0){
+            Dranken drank = new Dranken();
+            drank.setFoto(R.drawable.fantalogo);
+            drank.setDrankNaam("Fanta");
+            drank.setBeschrijving("Een drankje van de Coca Cola groep");
+            drank.setAlcoholpercentage(0);
+            drankenDB.drankenDao().insertDrank(drank);
+        }
+
+
+
+
     }
 }

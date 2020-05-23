@@ -10,7 +10,7 @@ public class Dranken {
     // BYTE
     // https://stackoverflow.com/questions/46337519/how-insert-image-in-room-persistence-library
     // Niet aangeraden om foto's op te slaan in Room database
-    private byte[] foto;
+    private int foto;
     private String drankNaam;
     private String beschrijving;
     private int alcoholpercentage;
@@ -23,11 +23,11 @@ public class Dranken {
         this.drank_id = drank_id;
     }
 
-    public byte[] getFoto() {
+    public int getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(int foto) {
         this.foto = foto;
     }
 
