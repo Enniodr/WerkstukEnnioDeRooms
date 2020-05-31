@@ -13,6 +13,9 @@ public interface DrankenDao {
     @Insert
     public void insertDrank(Dranken dranken);
 
+    @Insert
+    void insertList(List<Dranken> dranken);
+
     @Query("select * from Dranken")
     public List<Dranken> getDranken();
 
