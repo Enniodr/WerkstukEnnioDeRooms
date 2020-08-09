@@ -20,8 +20,8 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void onDranken(View view) {
-      //  Intent intent = new Intent(this, LijstVanEvenementen.class);
-      //  startActivity(intent);
+        Intent intent = new Intent(this, DrankenlijstActivity.class);
+        startActivity(intent);
     }
 
     public void onAfmelden(View view) {

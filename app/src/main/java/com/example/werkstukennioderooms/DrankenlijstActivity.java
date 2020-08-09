@@ -1,6 +1,7 @@
 package com.example.werkstukennioderooms;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -52,9 +53,9 @@ public class DrankenlijstActivity extends AppCompatActivity {
         listDranken.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               // Intent intent = new Intent(getApplicationContext(), SingleDrankje.class);
-               // intent.putExtra("drank_id",position);
-               // startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), detailActivity.class);
+                intent.putExtra("drank_id",position);
+                startActivity(intent);
             }
         });
 

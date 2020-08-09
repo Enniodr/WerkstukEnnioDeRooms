@@ -15,6 +15,8 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     public static AppDatabase ledenDB;
     public static AppDatabase drankenDB;
 
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Since we didn't alter the table, there's nothing else to do here.
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
         txtNaam = findViewById(R.id.txtNaam);
         txtPaswoord = findViewById(R.id.txtPaswoord);
 
-        ledenDB = Room.databaseBuilder(this, AppDatabase.class,"Leden").allowMainThreadQueries().build();
-        drankenDB = Room.databaseBuilder(this, AppDatabase.class,"Dranken").allowMainThreadQueries().build();
+        ledenDB = Room.databaseBuilder(this, AppDatabase.class,"Leden").addMigrations(MIGRATION_1_2).allowMainThreadQueries().build();
+        drankenDB = Room.databaseBuilder(this, AppDatabase.class,"Dranken").addMigrations(MIGRATION_1_2).allowMainThreadQueries().build();
 
         //Standaardgegevens nog inladen
+        standaardGegevensInDatabase();
 
         final Button login = findViewById(R.id.btnLogin);
         login.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +110,18 @@ public class MainActivity extends AppCompatActivity {
             Dranken drank = new Dranken();
             drank.setFoto(R.drawable.fantalogo);
             drank.setDrankNaam("Fanta");
+            drank.setBeschrijving("Een drankje van de Coca Cola groep");
+            drank.setAlcoholpercentage(0);
+            drankenDB.drankenDao().insertDrank(drank);
+
+            drank.setFoto(R.drawable.fantalogo);
+            drank.setDrankNaam("Coca Cola");
+            drank.setBeschrijving("Een drankje van de Coca Cola groep");
+            drank.setAlcoholpercentage(0);
+            drankenDB.drankenDao().insertDrank(drank);
+
+            drank.setFoto(R.drawable.fantalogo);
+            drank.setDrankNaam("Sprite");
             drank.setBeschrijving("Een drankje van de Coca Cola groep");
             drank.setAlcoholpercentage(0);
             drankenDB.drankenDao().insertDrank(drank);

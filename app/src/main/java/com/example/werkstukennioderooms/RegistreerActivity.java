@@ -13,6 +13,8 @@ import com.example.werkstukennioderooms.database.Leden;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 public class RegistreerActivity extends AppCompatActivity {
 
@@ -24,6 +26,13 @@ public class RegistreerActivity extends AppCompatActivity {
 
     public static AppDatabase ledenDataBase;
 
+
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Since we didn't alter the table, there's nothing else to do here.
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,7 @@ public class RegistreerActivity extends AppCompatActivity {
         nieuwsbrief = findViewById(R.id.chkNieuwsbrief);
         Button registreer = findViewById(R.id.btnRegistreerButton);
 
-        ledenDataBase = Room.databaseBuilder(this, AppDatabase.class,"Leden").allowMainThreadQueries().build();
+        ledenDataBase = Room.databaseBuilder(this, AppDatabase.class,"Leden").addMigrations(MIGRATION_1_2).allowMainThreadQueries().build();
 
         registreer.setOnClickListener(new View.OnClickListener() {
             @Override
