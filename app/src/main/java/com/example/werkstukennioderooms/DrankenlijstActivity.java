@@ -22,6 +22,8 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 public class DrankenlijstActivity extends AppCompatActivity {
 
@@ -34,6 +36,12 @@ public class DrankenlijstActivity extends AppCompatActivity {
     List<Dranken> getAlleDranken;
     List<Dranken> alleDranken;
 
+    //https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+        }
+    };
 
 
     @Override
@@ -41,7 +49,7 @@ public class DrankenlijstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drankenlijst);
 
-        drankenDataBase = Room.databaseBuilder(this, AppDatabase.class,"Dranken").allowMainThreadQueries().build();
+        drankenDataBase = Room.databaseBuilder(this, AppDatabase.class,"Dranken").addMigrations(MIGRATION_1_2).allowMainThreadQueries().build();
         drankThread runnable = new drankThread(drankenDataBase);
         new Thread(runnable).start();
         customAdapter = new customAdapter();
@@ -53,7 +61,7 @@ public class DrankenlijstActivity extends AppCompatActivity {
         listDranken.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), detailActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra("drank_id",position);
                 startActivity(intent);
             }

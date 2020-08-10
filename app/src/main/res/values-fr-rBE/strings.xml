@@ -6,4 +6,9 @@
     <string name="Login">S\'identifier</string>
     <string name="Register">S\'inscrire</string>
     <string name="email">email</string>
+    <string name="nieuwsbrief_ontvangen">Recevoir la newsletter</string>
+    <string name="Info">Info</string>
+    <string name="Dranken">Boissons</string>
+    <string name="Logout">Se déconnecter</string>
+    <string name="Search">Chercher</string>
 </resources>

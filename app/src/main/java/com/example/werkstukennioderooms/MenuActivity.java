@@ -14,11 +14,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
-    public void onGaNaarInfo(View view) {
-     //   Intent intent = new Intent(this, InfoActivity.class);
-     //   startActivity(intent);
-    }
-
     public void onDranken(View view) {
         Intent intent = new Intent(this, DrankenlijstActivity.class);
         startActivity(intent);

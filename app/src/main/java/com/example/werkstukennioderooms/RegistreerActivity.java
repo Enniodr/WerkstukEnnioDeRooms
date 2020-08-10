@@ -26,11 +26,10 @@ public class RegistreerActivity extends AppCompatActivity {
 
     public static AppDatabase ledenDataBase;
 
-
+    //https://medium.com/androiddevelopers/understanding-migrations-with-room-f01e04b07929
     static final Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
-            // Since we didn't alter the table, there's nothing else to do here.
         }
     };
 

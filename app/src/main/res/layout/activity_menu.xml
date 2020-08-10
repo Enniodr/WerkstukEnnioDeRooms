@@ -5,31 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
+
     <Button
-        android:id="@+id/btnInfo"
+        android:id="@+id/btnDranken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="149dp"
-        android:layout_marginLeft="149dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginRight="147dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="onGaNaarInfo"
-        android:text="@string/Info" />
-
-    <Button
-        android:id="@+id/btnEvenementen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnInfo"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="131dp"
@@ -45,7 +28,7 @@
         android:id="@+id/btnLogout"
         android:layout_width="122dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnEvenementen"
+        android:layout_alignTop="@+id/btnDranken"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
